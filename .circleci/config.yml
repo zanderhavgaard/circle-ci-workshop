@@ -5,7 +5,7 @@ jobs:
     steps:
       - checkout
       - run: 
-        name: Run and build.
-        command: gradle test
+          name: Run and build.
+          command: gradle test
       - store_test_results:
           path: build/test-results
