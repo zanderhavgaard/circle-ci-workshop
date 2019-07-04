@@ -32,9 +32,9 @@ jobs:
       # login to docker
       - run: docker login -u $DOCKER_LOGIN -p $DOCKER_PASS
       # build image
-      - run: docker build -t draagvah/cciTestApp:$CIRCLE_SHA1
+      - run: docker build -t draagvah/ccitestapp:$CIRCLE_SHA1
       # deploy image
-      - run: docker push draagvah/cciTestApp:$CIRCLE_SHA1
+      - run: docker push draagvah/ccitestapp:$CIRCLE_SHA1
 
 workflows:
   version: 2
