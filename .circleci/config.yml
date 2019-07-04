@@ -5,14 +5,20 @@ jobs:
     steps:
       - checkout
   test:
+    docker:
+      - image: circleci/openjdk:8-jdk
     steps:
+      - checkout
       - run:
           name: Gradle Test.
           command: gradle test
       - store_test_results:
           path: build/test-results
   build:
+    docker:
+      - image: circleci/openjdk:8-jdk
     steps:
+      - checkout
       - run:
           name: Gradle make jar.
           command: gradle jar
