@@ -35,6 +35,7 @@ jobs:
       - run: docker build -t draagvah/ccitestapp:$CIRCLE_SHA1 .
       # deploy image
       - run: docker push draagvah/ccitestapp:$CIRCLE_SHA1
+      - run: docker push draagvah/ccitestapp:latest
 
 workflows:
   version: 2
