@@ -28,7 +28,7 @@ jobs:
   dockerize:
     machine: true
     steps:
-      - chekout
+      - checkout
       # login to docker
       - run: docker login -u $DOCKER_LOGIN -p $DOCKER_PASS
       # build image
