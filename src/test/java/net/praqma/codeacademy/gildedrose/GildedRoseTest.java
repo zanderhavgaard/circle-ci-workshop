@@ -34,6 +34,6 @@ public class GildedRoseTest {
     Item[] items = new Item[] { new Item("Aged Brie", -1, -1) };
     GildedRose app = new GildedRose(items);
     app.updateQuality();
-    assertTrue(app.items[0].quality > -1)
+    assertTrue(app.items[0].quality > -1);
     } 
 }
