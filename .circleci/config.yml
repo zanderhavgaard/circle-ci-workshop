@@ -1,16 +1,34 @@
 jobs:
-  build:
+  setup:
     docker:
       - image: circleci/openjdk:8-jdk
     steps:
       - checkout
-      - run: 
-          name: Run and build.
-          command: |
-            gradle test
-            gradle jar
+  test:
+    steps:
+      - run:
+          name: Gradle Test.
+          command: gradle test
+      - store_test_results:
+          path: build/test-results
+  build:
+    steps:
+      - run:
+          name: Gradle make jar.
+          command: gradle jar
       - store_artifacts:
           path: build/libs
           destination: prefix
-      - store_test_results:
-          path: build/test-results
+
+workflows:
+  version: 2
+  setup_test_build:
+    jobs:
+      - setup
+      - test:
+          requires:
+            - setup
+      - build:
+          requires:
+            - test
+
