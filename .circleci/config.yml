@@ -25,6 +25,16 @@ jobs:
       - store_artifacts:
           path: build/libs
           destination: prefix
+  dockerize:
+    machine: true
+    steps:
+      - chekout
+      # login to docker
+      - run: docker login -u $DOCKER_LOGIN -p $DOCKER_PASS
+      # build image
+      - run: docker build -t draagvah/cciTestApp:$CIRCLE_SHA1
+      # deploy image
+      - run: docker push draagvah/cciTestApp:$CIRCLE_SHA1
 
 workflows:
   version: 2
@@ -37,4 +47,7 @@ workflows:
       - build:
           requires:
             - test
+      - dockerize:
+          requires:
+            - build
 
