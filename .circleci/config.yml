@@ -7,5 +7,6 @@ jobs:
       - run: 
           name: Run and build.
           command: gradle test
+          command: gradle jar
       - store_test_results:
           path: build/test-results
