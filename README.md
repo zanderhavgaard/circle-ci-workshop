@@ -1,3 +1,5 @@
+Repo for exercises @ Praqma's CoDe (Coninous Delivery) Academy 2019
+
 # CircleCI workshop
 
 CircleCI is a continuous integration and build Software as a Service (SaaS).
